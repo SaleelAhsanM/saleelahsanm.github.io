@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-content">
+
+        <div class="left-navbar">
+            <nav>
+                <ul>
+                    <li><a href="#summary" class="nav-link active">
+                            <i class="fas fa-user"></i>
+                            <span>Summary</span>
+                        </a></li>
+                    <li><a href="#experience" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Experience</span>
+                        </a></li>
+                    <li><a href="#education" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </a></li>
+                    <li><a href="#skills" class="nav-link">
+                            <i class="fas fa-code"></i>
+                            <span>Skills</span>
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <!-- 1st Container -->
+            <div class="name-container each-container">
+                <div class="name-section">
+                    <h1 class="name">Saleel Ahsan</h1>
+                    <p class="border-bottom border-top name-para">Senior Backend Developer at Deloitte</p>
+                    <i class="fab fa-linkedin-in linkedin-icon"></i>
+                </div>
+                <div class="profile-image-section">
+                    <img class="profile-img" src="images/profile-img.jpeg" alt="">
+                </div>
+            </div>
+
+            <!-- 2nd Container - Summary -->
+            <div id="summary" class="summary-container each-container">
+                <h2 class="summary-h2">Summary</h2>
+                <p class="summary-para">I am a highly skilled Senior Software Engineer based in Bengaluru, India, with
+                    extensive experience in backend and full-stack development. Proficient in Python, Flask, FastAPI,
+                    and a range of databases including PostgreSQL, MongoDB, and Redis. My expertise extends to cloud
+                    platforms like AWS and Azure, as well as frontend technologies such as Angular and JavaScript.</p>
+                <a href="documents/Saleel_Ahsan.pdf" download class="download-resume">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </a>
+            </div>
+
+            <!-- 3rd Container - Experience -->
+            <div id="experience" class="experience-container each-container">
+                <h2 class="experience-h2">Experience</h2>
+                <div class="experience">
+                    <div class="experience-item">
+                        <img src="https://media.licdn.com/dms/image/v2/C560BAQGNtpblgQpJoQ/company-logo_100_100/company-logo_100_100/0/1662120928214/deloitte_logo?e=1753315200&v=beta&t=oMW4nngivIyzBxuu9m0mXR1l-6gtUGA57cAqPiVgQbQ"
+                            alt="Company Logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="job-title">Senior Software Engineer </h3>
+                            <p class="company-name">Deloitte (Contract through Quess Corp)</p>
+                            <p class="date-range">Feb 2025 - Apr 2025</p>
+                            <p class="job-description">Enhanced the employee performance review process by building an
+                                AI-powered app, leading to data-driven decisions regarding
+                                compensation for over 5,000 employees.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <img src="https://media.licdn.com/dms/image/v2/C4E0BAQH5MMGSg7IxMg/company-logo_100_100/company-logo_100_100/0/1677676304913/knowledgelens_logo?e=1753315200&v=beta&t=HHSFxKPVCx49ewh8TkGxMMH05oBi6IjGmbJUDBagjeE"
+                            alt="Company Logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="job-title">Senior Software Engineer</h3>
+                            <p class="company-name">Knowledge Lens: A Rockwell Automation Company </p>
+                            <p class="date-range">Oct 2022 - Feb 2025</p>
+                            <p class="job-description">Delivered a 100% increase in patient capture rates for a major pharmaceutical company through an AI-powered solution, achieving 10%
+                                higher accuracy in patient identification.</p>
+                            <p class="job-description">Built RESTful APIs using Python (FastAPI), MongoDB and Redis for a logbook application.</p>
+                            <p class="job-description">Improved code quality by 30% through rigorous code reviews and mentorship, resulting in a 20% decrease in bug occurrences.</p>
+                            <p class="job-description">Implemented Agile methodologies and tools like Jira for project management and team collaboration.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <img src="https://media.licdn.com/dms/image/v2/C4E0BAQH5MMGSg7IxMg/company-logo_100_100/company-logo_100_100/0/1677676304913/knowledgelens_logo?e=1753315200&v=beta&t=HHSFxKPVCx49ewh8TkGxMMH05oBi6IjGmbJUDBagjeE"
+                            alt="Company Logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="job-title">Full Stack Developer </h3>
+                            <p class="company-name">Knowledge Lens: A Rockwell Automation Company </p>
+                            <p class="date-range">Jun 2021 - Sep 2022</p>
+                            <p class="job-description">Developed a comprehensive pharmaceutical sales and marketing interactions app using Flask and Angular, tracking interactions between
+                                over 40,000 reps and 400,000 prescribers.</p>
+                            <p class="job-description">Implemented AWS Lambda for backend APIs, achieving a 30% cost reduction and improved scalability.</p>
+                            <p class="job-description">Optimized PostgreSQL indexing, resulting in a 50% reduction in API response times.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <img src="https://media.licdn.com/dms/image/v2/C4E0BAQH5MMGSg7IxMg/company-logo_100_100/company-logo_100_100/0/1677676304913/knowledgelens_logo?e=1753315200&v=beta&t=HHSFxKPVCx49ewh8TkGxMMH05oBi6IjGmbJUDBagjeE"
+                            alt="Company Logo" class="company-logo">
+                        <div class="experience-details">
+                            <h3 class="job-title">Software Engineer </h3>
+                            <p class="company-name">Knowledge Lens: A Rockwell Automation Company </p>
+                            <p class="date-range">Oct 2018 - May 2021</p>
+                            <p class="job-description">Developed a centralized monitoring application for pollution control boards, improving daily support ticket closure by 30% through faster
+                                error detection.</p>
+                            <p class="job-description">Refactored a legacy Python 2 application, reducing execution time by 25% and enhancing maintainability for new team members.</p>
+                            <p class="job-description">Engineered and implemented optimized database queries that reduced data retrieval time by 35%, resulting in improved application
+                                performance and increased user satisfaction ratings by 25% in customer feedback.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4th Container - Education -->
+            <div id="education" class="education-container each-container">
+                <h2 class="education-h2">Education</h2>
+                <div class="education">
+                    <div class="education-item">
+                        <object type="image/svg+xml" data="university-logo.svg" class="university-logo"></object>
+                        <div class="education-details">
+                            <h3 class="degree-title">Master of Computer Applications </h3>
+                            <p class="university-name">University of Kerala. Thiruvananthapuram, Kerala</p>
+                            <p class="date-range">Oct 2015 - Sep 2018</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <img src="images/Uni_of_cali.png" alt="University of Calicut" class="university-logo">
+                        <div class="education-details">
+                            <h3 class="degree-title">Bachelor of Computer Applications. Malappuram, Kerala</h3>
+                            <p class="university-name">University of Calicut</p>
+                            <p class="date-range">Jun 2012 - May 2015</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5th Container - Skills -->
+            <div id="skills" class="skills-container each-container">
+                <h2 class="skills-h2">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Backend & Databases</h3>
+                        <div class="skills-tiles">
+                            <div class="skill-tile">
+                                <img src="https://www.python.org/static/community_logos/python-logo-generic.svg"
+                                    alt="Python" class="skill-icon">
+                                Python
+                            </div>
+                            <div class="skill-tile"><i class="fab fa-python"></i> Python</div>
+                            <div class="skill-tile"><i class="fas fa-server"></i> Flask</div>
+                            <div class="skill-tile"><i class="fas fa-bolt"></i> FastAPI</div>
+                            <div class="skill-tile"><i class="fas fa-database"></i> PostgreSQL</div>
+                            <div class="skill-tile"><i class="fas fa-database"></i> MongoDB</div>
+                            <div class="skill-tile"><i class="fas fa-database"></i> Redis</div>
+                            <div class="skill-tile"><i class="fas fa-database"></i> MySQL</div>
+                            <div class="skill-tile"><i class="fas fa-code"></i> API Development</div>
+                            <div class="skill-tile"><i class="fas fa-table"></i> Pandas</div>
+                            <div class="skill-tile"><i class="fas fa-calculator"></i> NumPy</div>
+                            <div class="skill-tile"><i class="fas fa-chart-bar"></i> Power BI</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Cloud Services</h3>
+                        <div class="skills-tiles">
+                            <div class="skill-tile"><i class="fab fa-aws"></i> AWS Lambda</div>
+                            <div class="skill-tile"><i class="fab fa-aws"></i> AWS S3</div>
+                            <div class="skill-tile"><i class="fab fa-aws"></i> AWS API Gateway</div>
+                            <div class="skill-tile"><i class="fab fa-google"></i> GCP Speech-to-Text</div>
+                            <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure OpenAI</div>
+                            <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure Translator</div>
+                            <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure Speech</div>
+                            <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure Storage</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skills-tiles">
+                            <div class="skill-tile"><i class="fab fa-angular"></i> Angular</div>
+                            <div class="skill-tile"><i class="fab fa-html5"></i> HTML</div>
+                            <div class="skill-tile"><i class="fab fa-css3-alt"></i> CSS</div>
+                            <div class="skill-tile"><i class="fab fa-js"></i> JavaScript</div>
+                            <div class="skill-tile"><i class="fab fa-js"></i> TypeScript</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Tools & Methods</h3>
+                        <div class="skills-tiles">
+                            <div class="skill-tile"><i class="fab fa-git-alt"></i> Git</div>
+                            <div class="skill-tile"><i class="fas fa-code"></i> JSON</div>
+                            <div class="skill-tile"><i class="fas fa-key"></i> OAuth</div>
+                            <div class="skill-tile"><i class="fas fa-key"></i> JWT</div>
+                            <div class="skill-tile"><i class="fas fa-users"></i> Agile</div>
+                            <div class="skill-tile"><i class="fab fa-jira"></i> Jira</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
