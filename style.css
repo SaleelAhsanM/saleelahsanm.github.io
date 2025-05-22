@@ -80,12 +80,52 @@ body {
     width: calc(100% - 70px);
 }
 
-.name-container {
+.name-outer-container {
     background-color: var(--bg-light);
-    display: flex;
+}
+
+.summary-outer-container {
+    background-color: var(--white);
+}
+
+.experience-outer-container {
+    background-color: var(--bg-light);
+}
+
+.education-outer-container {
+    background-color: var(--white);
+}
+
+.skills-outer-container {
+    background-color: var(--bg-light);
+}
+
+.name-container {
     display: flex;
     align-items: center;
     flex-direction: row;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(10), blink .5s step-end infinite alternate;
+    width: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 115px }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
 }
 
 .name {
@@ -164,7 +204,6 @@ body {
 /*  Experience Container */
 
 .experience-container {
-    background-color: var(--bg-light);
 }
 
 .experience-h2 {
@@ -300,7 +339,6 @@ body {
 
 /* Skills Container */
 .skills-container {
-    background-color: #f7f7f7;
 }
 
 .skills-h2 {
