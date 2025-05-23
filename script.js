@@ -111,14 +111,37 @@ document.addEventListener('DOMContentLoaded', function() {
             const type = btn.dataset.type;
             const info = contactInfo[type];
             const rect = btn.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
             
             copyContent.textContent = info.display;
             actionBtn.href = info.action;
             actionBtn.querySelector('i').className = `fas ${info.icon}`;
             
-            popover.style.top = `${rect.bottom + 10}px`;
-            popover.style.left = `${rect.left}px`;
+            // Show popover to calculate its dimensions
+            popover.style.visibility = 'hidden';
             popover.classList.add('show');
+            const popoverRect = popover.getBoundingClientRect();
+            
+            // Calculate position
+            let left = rect.left;
+            let top = rect.bottom + 10;
+            
+            // Adjust horizontal position if popover would overflow viewport
+            if (left + popoverRect.width > viewportWidth) {
+                left = viewportWidth - popoverRect.width - 10;
+            }
+            
+            // Adjust vertical position if popover would overflow viewport
+            if (top + popoverRect.height > viewportHeight) {
+                top = rect.top - popoverRect.height - 10;
+            }
+            
+            // Apply adjusted position
+            popover.style.top = `${top}px`;
+            popover.style.left = `${left}px`;
+            popover.style.visibility = 'visible';
+            
             e.stopPropagation();
         });
     });

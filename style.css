@@ -26,6 +26,7 @@ body {
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: width 0.3s ease;
+    z-index: 1;
 }
 
 .left-navbar ul {
@@ -330,6 +331,9 @@ font-size: 16px;
     border-radius: 8px;
     padding: 15px;
     z-index: 2;  /* Keep popover above everything */
+    max-width: calc(100vw - 40px); /* Prevent horizontal overflow */
+    width: max-content;     /* Allow content to determine width */
+    word-break: break-all;  /* Break long text if needed */
 }
 
 .popover.show {
@@ -806,9 +810,11 @@ font-size: 16px;
     }
 
     .contact-info {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        flex-direction: row;  /* Change from column to row */
+        justify-content: center;  /* Center items horizontally */
+        gap: 20px;  /* Consistent gap between icons */
+        margin-top: 15px;
+        flex-wrap: wrap;  /* Allow wrapping if needed */
     }
 }
 
@@ -903,6 +909,30 @@ font-size: 16px;
     .job-description::before {
         left: 4px;
         font-size: 14px;
+    }
+
+    .popover {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .copy-content {
+        font-size: 13px;
+        padding: 6px;
+    }
+    
+    .action-icon-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .contact-info {
+        gap: 15px;  /* Slightly reduced gap for smaller screens */
+    }
+
+    .contact-btn, .linkedin-icon, .github-icon {
+        padding: 8px;  /* Slightly larger touch target */
     }
 }
 
