@@ -52,7 +52,31 @@
                         <p class="greeting">Hello, I am</p>
                         <h1 class="name">Saleel Ahsan</h1>
                         <p class="border-bottom border-top name-para">Senior Backend Developer at Deloitte</p>
-                        <i class="fab fa-linkedin-in linkedin-icon"></i>
+                        <div class="contact-info">
+                            <a href="https://www.linkedin.com/in/saleelahsanm/" target="_blank" class="linkedin-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <button class="contact-btn" data-type="phone">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                            <button class="contact-btn" data-type="email">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        </div>
+                        <div class="popover" id="contactPopover">
+                            <div class="popover-content">
+                                <button class="close-btn">&times;</button>
+                                <div class="copy-content"></div>
+                                <div class="popover-actions">
+                                    <button class="action-icon-btn copy-btn" title="Copy">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+                                    <a href="#" class="action-icon-btn action-btn" target="_blank" title="Contact">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="profile-image-section">
                         <img class="profile-img" src="images/profile-img.jpeg" alt="">
@@ -63,10 +87,13 @@
             <div class="summary-outer-container">
                 <div id="summary" class="summary-container each-container">
                     <h2 class="summary-h2">Summary</h2>
-                    <p class="summary-para">I am a highly skilled Senior Software Engineer based in Bengaluru, India, with
-                        extensive experience in backend and full-stack development. Proficient in Python, Flask, FastAPI,
+                    <p class="summary-para">I am a highly skilled Senior Software Engineer based in Bengaluru, India,
+                        with
+                        extensive experience in backend and full-stack development. Proficient in Python, Flask,
+                        FastAPI,
                         and a range of databases including PostgreSQL, MongoDB, and Redis. My expertise extends to cloud
-                        platforms like AWS and Azure, as well as frontend technologies such as Angular and JavaScript.</p>
+                        platforms like AWS and Azure, as well as frontend technologies such as Angular and JavaScript.
+                    </p>
                     <a href="documents/Saleel_Ahsan.pdf" download class="download-resume">
                         <i class="fas fa-download"></i>
                         Download Resume
@@ -85,7 +112,8 @@
                                 <h3 class="job-title">Senior Software Engineer </h3>
                                 <p class="company-name">Deloitte (Contract through Quess Corp)</p>
                                 <p class="date-range">Feb 2025 - Apr 2025</p>
-                                <p class="job-description">Enhanced the employee performance review process by building an
+                                <p class="job-description">Enhanced the employee performance review process by building
+                                    an
                                     AI-powered app, leading to data-driven decisions regarding
                                     compensation for over 5,000 employees.</p>
                             </div>
@@ -98,14 +126,18 @@
                                 <h3 class="job-title">Senior Software Engineer</h3>
                                 <p class="company-name">Knowledge Lens: A Rockwell Automation Company </p>
                                 <p class="date-range">Oct 2022 - Feb 2025</p>
-                                <p class="job-description">Delivered a 100% increase in patient capture rates for a major
+                                <p class="job-description">Delivered a 100% increase in patient capture rates for a
+                                    major
                                     pharmaceutical company through an AI-powered solution, achieving 10%
                                     higher accuracy in patient identification.</p>
-                                <p class="job-description">Built RESTful APIs using Python (FastAPI), MongoDB and Redis for
+                                <p class="job-description">Built RESTful APIs using Python (FastAPI), MongoDB and Redis
+                                    for
                                     a logbook application.</p>
-                                <p class="job-description">Improved code quality by 30% through rigorous code reviews and
+                                <p class="job-description">Improved code quality by 30% through rigorous code reviews
+                                    and
                                     mentorship, resulting in a 20% decrease in bug occurrences.</p>
-                                <p class="job-description">Implemented Agile methodologies and tools like Jira for project
+                                <p class="job-description">Implemented Agile methodologies and tools like Jira for
+                                    project
                                     management and team collaboration.</p>
                             </div>
                         </div>
@@ -122,7 +154,8 @@
                                     over 40,000 reps and 400,000 prescribers.</p>
                                 <p class="job-description">Implemented AWS Lambda for backend APIs, achieving a 30% cost
                                     reduction and improved scalability.</p>
-                                <p class="job-description">Optimized PostgreSQL indexing, resulting in a 50% reduction in
+                                <p class="job-description">Optimized PostgreSQL indexing, resulting in a 50% reduction
+                                    in
                                     API response times.</p>
                             </div>
                         </div>
@@ -137,7 +170,8 @@
                                 <p class="job-description">Developed a centralized monitoring application for pollution
                                     control boards, improving daily support ticket closure by 30% through faster
                                     error detection.</p>
-                                <p class="job-description">Refactored a legacy Python 2 application, reducing execution time
+                                <p class="job-description">Refactored a legacy Python 2 application, reducing execution
+                                    time
                                     by 25% and enhancing maintainability for new team members.</p>
                                 <p class="job-description">Engineered and implemented optimized database queries that
                                     reduced data retrieval time by 35%, resulting in improved application
@@ -153,7 +187,7 @@
                     <h2 class="education-h2">Education</h2>
                     <div class="education">
                         <div class="education-item">
-                            <object type="image/svg+xml" data="university-logo.svg" class="university-logo"></object>
+                            <object type="image/svg+xml" data="images/university-logo.svg" class="university-logo"></object>
                             <div class="education-details">
                                 <h3 class="degree-title">Master of Computer Applications </h3>
                                 <p class="university-name">University of Kerala. Thiruvananthapuram, Kerala</p>
@@ -180,58 +214,167 @@
                             <h3>Backend & Databases</h3>
                             <div class="skills-tiles">
                                 <div class="skill-tile">
-                                    <img src="https://www.python.org/static/community_logos/python-logo-generic.svg"
-                                        alt="Python" class="skill-icon">
+                                    <img src="images/python.png" alt="Python" class="skill-icon">
                                     Python
                                 </div>
-                                <div class="skill-tile"><i class="fab fa-python"></i> Python</div>
-                                <div class="skill-tile"><i class="fas fa-server"></i> Flask</div>
-                                <div class="skill-tile"><i class="fas fa-bolt"></i> FastAPI</div>
-                                <div class="skill-tile"><i class="fas fa-database"></i> PostgreSQL</div>
-                                <div class="skill-tile"><i class="fas fa-database"></i> MongoDB</div>
-                                <div class="skill-tile"><i class="fas fa-database"></i> Redis</div>
-                                <div class="skill-tile"><i class="fas fa-database"></i> MySQL</div>
+                                <div class="skill-tile">
+                                    <img src="images/flask.png" alt="Flask" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-server\'></i> Flask'">
+                                    Flask
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/fastapi.png" alt="FastAPI" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-bolt\'></i> FastAPI'">
+                                    FastAPI
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/PostgresSQL.png" alt="PostgreSQL" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-database\'></i> PostgreSQL'">
+                                    PostgreSQL
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/mongodb.png" alt="MongoDB" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-database\'></i> MongoDB'">
+                                    MongoDB
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/redis.png" alt="Redis" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-database\'></i> Redis'">
+                                    Redis
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/mysql.png" alt="MySQL" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-database\'></i> MySQL'">
+                                    MySQL
+                                </div>
                                 <div class="skill-tile"><i class="fas fa-code"></i> API Development</div>
-                                <div class="skill-tile"><i class="fas fa-table"></i> Pandas</div>
-                                <div class="skill-tile"><i class="fas fa-calculator"></i> NumPy</div>
-                                <div class="skill-tile"><i class="fas fa-chart-bar"></i> Power BI</div>
+                                <div class="skill-tile">
+                                    <img src="images/Pandas.png" alt="Pandas" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-table\'></i> Pandas'">
+                                    Pandas
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/NumPy.png" alt="NumPy" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-calculator\'></i> NumPy'">
+                                    Pandas
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/Power_BI.png" alt="Power BI" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fas fa-chart-bar\'></i> Power BI'">
+                                    Power BI
+                                </div>
                             </div>
                         </div>
 
                         <div class="skill-category">
                             <h3>Cloud Services</h3>
                             <div class="skills-tiles">
-                                <div class="skill-tile"><i class="fab fa-aws"></i> AWS Lambda</div>
-                                <div class="skill-tile"><i class="fab fa-aws"></i> AWS S3</div>
-                                <div class="skill-tile"><i class="fab fa-aws"></i> AWS API Gateway</div>
-                                <div class="skill-tile"><i class="fab fa-google"></i> GCP Speech-to-Text</div>
-                                <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure OpenAI</div>
-                                <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure Translator</div>
-                                <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure Speech</div>
-                                <div class="skill-tile"><i class="fab fa-microsoft"></i> Azure Storage</div>
+                                <div class="skill-tile">
+                                    <img src="images/aws-lambda.png" alt="AWS Lambda" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-aws\'></i> AWS Lambda'">
+                                    AWS Lambda
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/S3.svg" alt="AWS S3" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-aws\'></i> AWS S3'">
+                                    AWS S3
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/api-gateway.svg" alt="AWS API Gateway" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-aws\'></i> AWS API Gateway'">
+                                    AWS API Gateway
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/Google Cloud.png" alt="GCP Speech-to-Text" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-google\'></i> GCP Speech-to-Text'">
+                                        GCP Speech-to-Text
+                                </div>
+
+                                <div class="skill-tile">
+                                    <img src="images/Azure-OpenAI.svg" alt="Azure OpenAI" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-microsoft\'></i> Azure OpenAI'">
+                                        Azure OpenAI
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/Translator.svg" alt="Azure Translator" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-microsoft\'></i> Azure Translator'">
+                                        Azure Translator
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/Speech-Services.svg" alt="Azure Speech" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-microsoft\'></i> Azure Speech'">
+                                        Azure Speech
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/Storage-Accounts.svg" alt="Azure Storage" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-microsoft\'></i> Azure Storage'">
+                                        Azure Storage
+                                </div>
                             </div>
                         </div>
 
                         <div class="skill-category">
                             <h3>Frontend</h3>
                             <div class="skills-tiles">
-                                <div class="skill-tile"><i class="fab fa-angular"></i> Angular</div>
-                                <div class="skill-tile"><i class="fab fa-html5"></i> HTML</div>
-                                <div class="skill-tile"><i class="fab fa-css3-alt"></i> CSS</div>
-                                <div class="skill-tile"><i class="fab fa-js"></i> JavaScript</div>
-                                <div class="skill-tile"><i class="fab fa-js"></i> TypeScript</div>
+                                <div class="skill-tile">
+                                    <img src="images/angular.png" alt="Angular" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-angular\'></i> Angular'">
+                                    Angular
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/HTML5.png" alt="HTML" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-html5\'></i> HTML'">
+                                    HTML
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/CSS3.png" alt="CSS" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-css3-alt\'></i> CSS'">
+                                    CSS
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/JavaScript.png" alt="JavaScript" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-js\'></i> JavaScript'">
+                                    JavaScript
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/TypeScript.png" alt="TypeScript" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-js\'></i> TypeScript'">
+                                    TypeScript
+                                </div>
                             </div>
                         </div>
 
                         <div class="skill-category">
                             <h3>Tools & Methods</h3>
                             <div class="skills-tiles">
-                                <div class="skill-tile"><i class="fab fa-git-alt"></i> Git</div>
-                                <div class="skill-tile"><i class="fas fa-code"></i> JSON</div>
+                                <div class="skill-tile">
+                                    <img src="images/Git.png" alt="Git" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-git-alt\'></i> Git'">
+                                    Git
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/JSON.png" alt="JSON" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-code\'></i> JSON'">
+                                    JSON
+                                </div>
                                 <div class="skill-tile"><i class="fas fa-key"></i> OAuth</div>
                                 <div class="skill-tile"><i class="fas fa-key"></i> JWT</div>
                                 <div class="skill-tile"><i class="fas fa-users"></i> Agile</div>
-                                <div class="skill-tile"><i class="fab fa-jira"></i> Jira</div>
+                                <div class="skill-tile">
+                                    <img src="images/Jira.png" alt="Jira" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-jira\'></i> Jira'">
+                                    Jira
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/Visual Studio Code.png" alt="VS Code" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-file\'></i> VS Code'">
+                                    VS Code
+                                </div>
+                                <div class="skill-tile">
+                                    <img src="images/PyCharm.png" alt="PyCharm" class="skill-icon"
+                                        onerror="this.onerror=null; this.parentElement.innerHTML='<i class=\'fab fa-file\'></i> PyCharm'">
+                                    PyCharm
+                                </div>
                             </div>
                         </div>
                     </div>
