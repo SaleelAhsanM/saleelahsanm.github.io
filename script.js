@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', setActiveLink);
 
-    // Add touch support for mobile devices
+    // Update touch support for smoother scrolling
     let touchStartY = 0;
     let touchEndY = 0;
+    const SWIPE_THRESHOLD = 100; // Minimum swipe distance to trigger section change
 
     document.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
@@ -43,27 +44,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('touchend', e => {
         touchEndY = e.changedTouches[0].clientY;
-        handleSwipe();
+        const swipeDistance = touchStartY - touchEndY;
+        
+        // Only handle section change if swipe distance exceeds threshold
+        if (Math.abs(swipeDistance) >= SWIPE_THRESHOLD) {
+            handleSwipe(swipeDistance > 0);
+        }
     }, false);
 
-    function handleSwipe() {
+    function handleSwipe(isSwipeUp) {
         const sections = Array.from(document.querySelectorAll('.each-container'));
         const currentSection = sections.find(section => {
             const rect = section.getBoundingClientRect();
-            return rect.top <= 0 && rect.bottom > 0;
+            const centerY = window.innerHeight / 2;
+            // Consider section active if it occupies the center of the screen
+            return rect.top <= centerY && rect.bottom >= centerY;
         });
         
         if (currentSection) {
             const currentIndex = sections.indexOf(currentSection);
-            if (touchEndY < touchStartY && currentIndex < sections.length - 1) {
-                // Swipe up - go to next section
+            if (isSwipeUp && currentIndex < sections.length - 1) {
                 sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-            } else if (touchEndY > touchStartY && currentIndex > 0) {
-                // Swipe down - go to previous section
+            } else if (!isSwipeUp && currentIndex > 0) {
                 sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
             }
         }
     }
+
+    // Prevent default scroll behavior on touch devices
+    document.addEventListener('touchmove', function(e) {
+        e.stopPropagation();
+    }, { passive: true });
 
     // Scroll to Top functionality
     const scrollToTopBtn = document.getElementById('scrollToTop');
