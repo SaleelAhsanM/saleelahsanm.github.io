@@ -101,6 +101,7 @@ body {
 }
 
 .name-container {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -113,8 +114,102 @@ body {
     margin: 0 0 5px 0;
     border-right: 2px solid var(--primary-dark);
     white-space: nowrap;
+}
+.fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;  /* Place canvas behind content */
+}
+
+.name-section, .profile-image-section {
+    position: relative;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
+}
+
+.greeting {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: var(--primary-dark);
+    margin: 0 0 5px 0;
+    border-right: 2px solid var(--primary-dark);
+    white-space: nowrap;
     overflow: hidden;
-    animation: typing 2s steps(10), blink .5s step-end infinite alternate;
+animation: typing 2s steps(10), blink .5s step-end infinite alternate;
     width: 0;
     animation-fill-mode: forwards;
 }
@@ -174,7 +269,10 @@ body {
     border: none;
     color: var(--text-light);
     cursor: pointer;
-    font-size: 16px;
+font-size: 16px;
+    padding: 5px;
+    transition: color 0.3s ease;
+font-size: 16px;
     padding: 5px;
     transition: color 0.3s ease;
 }
@@ -231,7 +329,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 8px;
     padding: 15px;
-    z-index: 1000;
+    z-index: 2;  /* Keep popover above everything */
 }
 
 .popover.show {

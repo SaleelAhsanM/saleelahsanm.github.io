@@ -144,4 +144,118 @@ document.addEventListener('DOMContentLoaded', function() {
             popover.classList.remove('show');
         }
     });
+
+    // Add fireworks functionality
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    const nameContainer = document.querySelector('.name-container');
+
+    function resizeCanvas() {
+        canvas.width = nameContainer.offsetWidth;
+        canvas.height = nameContainer.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function getRandomColor() {
+        // Generate vibrant colors with high saturation
+        const hue = Math.random() * 360;
+        const saturation = 60 + Math.random() * 30; // Between 70-100%
+        const lightness = 40 + Math.random() * 10;  // Between 50-60%
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+
+    function createLaunchParticle(endX, endY) {
+        return {
+            x: endX,
+            y: canvas.height,
+            targetX: endX,
+            targetY: endY,
+            color: getRandomColor(), // Random color for each launch
+            radius: 2,
+            velocity: {
+                x: 0,
+                y: -15
+            },
+            isLaunching: true
+        };
+    }
+
+    function createExplosionParticle(x, y, color) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 2 + 2;
+        return {
+            x,
+            y,
+            color: color, // Use the same color as the launch particle
+            radius: Math.random() * 1.5 + 0.5,
+            velocity: {
+                x: Math.cos(angle) * speed,
+                y: Math.sin(angle) * speed
+            },
+            alpha: 1
+        };
+    }
+
+    function createExplosion(x, y, color) {
+        const particles = [];
+        for (let i = 0; i < 100; i++) {
+            particles.push(createExplosionParticle(x, y, color));
+        }
+        return particles;
+    }
+
+    let fireworks = [];
+    let launchParticles = [];
+
+    nameContainer.addEventListener('click', function(e) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        launchParticles.push(createLaunchParticle(x, y));
+    });
+
+    function animate() {
+        ctx.fillStyle = 'rgba(245, 242, 238, 0.3)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Update and draw launch particles
+        launchParticles = launchParticles.filter(particle => {
+            particle.x += particle.velocity.x;
+            particle.y += particle.velocity.y;
+
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            ctx.fillStyle = particle.color;
+            ctx.fill();
+
+            // Check if reached target
+            if (particle.y <= particle.targetY) {
+                fireworks.push(createExplosion(particle.x, particle.y, particle.color));
+                return false;
+            }
+            return true;
+        });
+
+        // Update and draw explosion particles
+        fireworks = fireworks.filter(particles => {
+            particles = particles.filter(particle => {
+                particle.x += particle.velocity.x;
+                particle.y += particle.velocity.y;
+                particle.velocity.y += 0.03;
+                particle.alpha -= 0.01;
+
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color.replace('hsl', 'hsla').slice(0, -1) + `, ${particle.alpha})`;
+                ctx.fill();
+
+                return particle.alpha > 0;
+            });
+            return particles.length > 0;
+        });
+
+        requestAnimationFrame(animate);
+    }
+    animate();
 });
