@@ -169,7 +169,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.linkedin-icon {
+.linkedin-icon, .github-icon, .contact-btn {
     background: none;
     border: none;
     color: var(--text-light);
@@ -179,9 +179,8 @@ body {
     transition: color 0.3s ease;
 }
 
-.linkedin-icon:hover {
+.linkedin-icon:hover, .github-icon:hover, .contact-btn:hover {
     color: #232323;
-    cursor: pointer;
 }
 
 .contact-info {
