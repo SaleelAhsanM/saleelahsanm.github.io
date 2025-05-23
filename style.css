@@ -718,6 +718,27 @@ font-size: 16px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
+/* Walking Cat Animation */
+.walking-cat {
+    position: absolute;
+    bottom: -35px;
+    left: -50px; /* Start outside the container */
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: walkAcross 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes walkAcross {
+    from {
+        left: -50px;
+    }
+    to {
+        left: calc(100% + 50px);
+    }
+}
+
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
     .each-container {
