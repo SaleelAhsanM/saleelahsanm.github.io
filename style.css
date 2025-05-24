@@ -93,6 +93,8 @@ body {
 }
 
 .summary-outer-container {
+    position: relative;
+    z-index: 1;
     background-color: var(--white);
 }
 
@@ -101,6 +103,7 @@ body {
 }
 
 .education-outer-container {
+    position: relative;
     background-color: var(--white);
 }
 
