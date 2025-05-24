@@ -475,7 +475,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw; /* Changed from 100% to 100vw to ensure full viewport width */
+    width: 100%;
     height: 100%;
     pointer-events: none;
     z-index: 0;
@@ -495,6 +495,7 @@ body {
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(100vh);
     }
@@ -505,7 +506,9 @@ body {
     position: relative;
 }
 
-.summary-h2, .summary-para, .download-resume {
+.summary-h2,
+.summary-para,
+.download-resume {
     position: relative;
     z-index: 1;
 }
@@ -513,7 +516,8 @@ body {
 /* Cloud and Thunder Effects */
 .cloud {
     position: absolute;
-    background: rgba(212, 203, 189, 0.9); /* Updated to match --primary-color */
+    background: rgba(212, 203, 189, 0.9);
+    /* Updated to match --primary-color */
     border-radius: 50px;
     width: 100px;
     height: 40px;
@@ -526,7 +530,8 @@ body {
 .cloud::after {
     content: '';
     position: absolute;
-    background: rgba(212, 203, 189, 0.9); /* Updated to match --primary-color */
+    background: rgba(212, 203, 189, 0.9);
+    /* Updated to match --primary-color */
     border-radius: 50%;
 }
 
@@ -547,45 +552,76 @@ body {
 .thunder {
     position: absolute;
     width: 8px;
-    height: 50px; /* Made longer */
-    background: linear-gradient(180deg, #ffeb3b, #ff9800); /* Brighter orange-yellow gradient */
+    height: 50px;
+    /* Made longer */
+    background: linear-gradient(180deg, #ffeb3b, #ff9800);
+    /* Brighter orange-yellow gradient */
     transform-origin: top;
     opacity: 0;
-    filter: drop-shadow(0 0 20px rgba(255, 235, 59, 1)); /* Stronger yellow glow */
+    filter: drop-shadow(0 0 20px rgba(255, 235, 59, 1));
+    /* Stronger yellow glow */
     z-index: 1;
 }
 
 @keyframes driftCloud {
-    0% { transform: translateX(-150px); }
-    100% { transform: translateX(calc(100vw + 150px)); } /* Changed from 100% to 100vw */
+    0% {
+        transform: translateX(-150px);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 150px));
+    }
+
+    /* Changed from 100% to 100vw */
 }
 
 @keyframes flash {
-     0% { opacity: 0; }
-    20% { opacity: 1; }
-    40% { opacity: 0; }
-    60% { opacity: 0.8; }
-    80% { opacity: 0; }
-    100% { opacity: 0.4; }
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
 }
 
 /* Boat Animation */
 .boat {
     position: absolute;
-    bottom: 10px; /* Adjusted to sit better on waves */
-    right: 40px;
+    bottom: -10px;
+    /* Adjusted to sit better on waves */
+    right: 0px;
     width: 100px;
     height: auto;
-    z-index: 3; /* Ensure boat stays above waves */
+    /* Ensure boat stays above waves */
     animation: boatFloat 3s ease-in-out infinite;
     transform-origin: center bottom;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 @keyframes boatFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(-2deg) translateY(0);
     }
+
     50% {
         transform: rotate(2deg) translateY(-6px);
     }
@@ -597,10 +633,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Increased height for better waves */
-    background: linear-gradient(180deg, 
-        rgba(212, 203, 189, 0.3), /* Updated to match --primary-color */
-        rgba(163, 155, 139, 0.5)); /* Updated to match --primary-dark */
+    height: 50px;
     overflow: hidden;
     z-index: 0;
 }
@@ -609,32 +642,48 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 200%;
-    height: 100%;
-    animation: wave 10s linear infinite;
+    width: 400%; /* Increased to accommodate 4 waves */
+    height: 80%;
     transform-origin: center bottom;
+    background-repeat: repeat-x;
 }
 
 .wave1 {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23D4CBBD' fill-opacity='0.3'/%3E%3C/svg%3E");
-    background-size: 28% 100%;
+    background: url('images/wave-1.svg');
     animation: wave 12s linear infinite;
     opacity: 1;
     z-index: 1;
 }
 
 .wave2 {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23A39B8B' fill-opacity='0.4'/%3E%3C/svg%3E");
-    background-size: 28% 100%;
+    background: url('images/wave-2.svg');
     animation: wave 8s linear infinite;
     opacity: 0.75;
     z-index: 2;
 }
 
+.wave3 {
+    background: url('images/wave-3.svg');
+    animation: wave 10s linear infinite;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+.wave4 {
+    background: url('images/wave-4.svg');
+    animation: wave 6s linear infinite;
+    opacity: 0.25;
+    z-index: 4;
+}
+
 @keyframes wave {
-    0% { transform: translateX(0) translateZ(0) scaleY(1); }
-    50% { transform: translateX(-25%) translateZ(0) scaleY(0.95); }
-    100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-25%);
+    } /* Move one full wave width */
 }
 
 /* Balloon Animation */
@@ -645,7 +694,8 @@ body {
     height: 116.5px;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     z-index: 0;
-    animation: floatUp 8s linear; /* Reduced from 8s to 4s */
+    animation: floatUp 8s linear;
+    /* Reduced from 8s to 4s */
 }
 
 .balloon::before {
@@ -691,12 +741,15 @@ body {
         transform: translateY(100%);
         opacity: 0;
     }
+
     10% {
         opacity: 0.7;
     }
+
     90% {
         opacity: 0.7;
     }
+
     100% {
         transform: translateY(calc(-1 * var(--section-height)));
         opacity: 0;
@@ -733,6 +786,7 @@ body {
 .animation-toggle.disabled,
 .balloon-toggle.disabled {
     color: var(--primary-color);
+    animation: bounceDown 1s infinite;
 }
 
 /* Animation Toggle Button */
@@ -1240,6 +1294,19 @@ body {
     }
 }
 
+@media screen and (min-width:480px) {
+    .experience-item:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 45px;
+        top: 60px;
+        bottom: -30px;
+        width: 2px;
+        background-color: var(--primary-color);
+        opacity: 0.5;
+    }
+}
+
 /* Fix scrolling issues on mobile */
 html {
     scroll-behavior: smooth;
@@ -1251,11 +1318,84 @@ body {
 
 /* Experience Container */
 .experience-container {
-    position: relative; /* Add this to contain absolute positioning */
-    padding-top: 60px; /* Add space for the toggle button */
+    position: relative;
 }
 
 .experience-h2 {
-    position: relative; /* Keep heading above toggle */
+    margin-bottom: 30px;
+    position: relative;
     z-index: 1;
+}
+
+.experience-item {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 20px;
+    object-fit: contain;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.experience-details {
+    flex: 1;
+}
+
+.job-title {
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.company-name {
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+}
+
+.date-range {
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+}
+
+.job-description {
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.job-description::before {
+    content: '•';
+    position: absolute;
+    left: 5px;
+    color: var(--primary-dark);
+}
+
+.balloon-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--primary-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
 }
