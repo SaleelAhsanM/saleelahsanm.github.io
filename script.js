@@ -345,4 +345,184 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Don't start balloon creation automatically
     // balloonInterval = setInterval(createBalloon, 2000);
+
+    // Add rain effect
+    const summaryContainer = document.querySelector('.summary-container');
+    const rainContainer = document.createElement('div');
+    rainContainer.className = 'rain-container';
+    summaryContainer.insertBefore(rainContainer, summaryContainer.firstChild);
+
+    function createRaindrop() {
+        const drop = document.createElement('div');
+        drop.className = 'raindrop';
+        
+        // Random properties for each drop
+        const size = Math.random() * 3 + 1;
+        const speed = Math.random() * 1.5 + 0.5;
+        const xPos = Math.random() * 100;
+        
+        drop.style.height = size * 20 + 'px';
+        drop.style.left = xPos + '%';
+        drop.style.animationDuration = speed + 's';
+        
+        rainContainer.appendChild(drop);
+        
+        // Remove drop after animation
+        setTimeout(() => drop.remove(), speed * 1000);
+    }
+
+    // Create raindrops periodically
+    const rainInterval = setInterval(() => {
+        if (document.visibilityState === 'visible') {
+            createRaindrop();
+        }
+    }, 100);
+
+    // Add cloud and thunder effects
+    function createCloud() {
+        // Check for existing clouds to prevent overlap
+        const existingClouds = rainContainer.querySelectorAll('.cloud');
+        if (existingClouds.length > 3) return; // Limit maximum clouds
+
+        const cloud = document.createElement('div');
+        cloud.className = 'cloud';
+        
+        // Get positions of existing clouds
+        const cloudPositions = Array.from(existingClouds).map(c => {
+            const rect = c.getBoundingClientRect();
+            return { left: rect.left, top: parseInt(c.style.top) };
+        });
+
+        // Find a safe position for new cloud
+        let safePosition = false;
+        let attempts = 0;
+        let topPos, leftPos;
+
+        while (!safePosition && attempts < 10) {
+            topPos = Math.random() * 60;
+            leftPos = -150; // Start from left edge
+
+            // Check if position is far enough from existing clouds
+            safePosition = cloudPositions.every(pos => 
+                Math.abs(pos.top - topPos) > 30 && Math.abs(pos.left - leftPos) > 200
+            );
+            attempts++;
+        }
+
+        if (!safePosition) return; // Skip if no safe position found
+
+        cloud.style.top = `${topPos}px`;
+        rainContainer.appendChild(cloud);
+        
+        // Remove cloud after animation or if hidden
+        const removeCloud = () => cloud.remove();
+        cloud.addEventListener('animationend', removeCloud);
+        setTimeout(removeCloud, 20000); // Backup cleanup
+
+        // Create thunder with random delay
+        if (Math.random() < 0.3) {
+            setTimeout(() => {
+                if (cloud.isConnected) { // Only create thunder if cloud still exists
+                    createThunder(cloud);
+                }
+            }, Math.random() * 2000);
+        }
+    }
+
+    // Adjust cloud creation interval
+    const createCloudWithInterval = () => {
+        if (document.visibilityState === 'visible') {
+            createCloud();
+        }
+    };
+
+    // Initial cloud
+    createCloud();
+    
+    // Create new clouds at random intervals between 5-15 seconds
+    function scheduleNextCloud() {
+        const randomDelay = 5000 + Math.random() * 10000;
+        setTimeout(() => {
+            createCloud();
+            scheduleNextCloud();
+        }, randomDelay);
+    }
+    
+    scheduleNextCloud();
+
+    // Add to existing visibility change handler
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            rainContainer.querySelectorAll('.cloud, .thunder').forEach(el => el.remove());
+        }
+    });
+
+    // Clean up
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            rainContainer.innerHTML = '';
+        }
+    });
+
+    // Add water effect
+    const waterContainer = document.createElement('div');
+    waterContainer.className = 'water-container';
+    
+    const wave1 = document.createElement('div');
+    wave1.className = 'wave wave1';
+    
+    const wave2 = document.createElement('div');
+    wave2.className = 'wave wave2';
+    
+    waterContainer.appendChild(wave1);
+    waterContainer.appendChild(wave2);
+    summaryContainer.appendChild(waterContainer);
+
+    // Add boat after water container
+    const boat = document.createElement('img');
+    boat.src = 'images/boat.png';
+    boat.alt = 'Floating Boat';
+    boat.className = 'boat';
+    summaryContainer.appendChild(boat);
+
+    // Add animation toggle button
+    summaryContainer.classList.add('animations-disabled'); // Disable animations by default
+    
+    const animationToggle = document.createElement('button');
+    animationToggle.className = 'animation-toggle disabled';
+    animationToggle.innerHTML = '<i class="fa-solid fa-toggle-off"></i>';
+    animationToggle.title = 'Toggle Animations';
+    summaryContainer.appendChild(animationToggle);
+
+    let animationsEnabled = false;
+
+    function toggleAnimations() {
+        animationsEnabled = !animationsEnabled;
+        animationToggle.innerHTML = animationsEnabled ? 
+            '<i class="fa-solid fa-toggle-on"></i>' : 
+            '<i class="fa-solid fa-toggle-off"></i>';
+        animationToggle.classList.toggle('disabled');
+        summaryContainer.classList.toggle('animations-disabled');
+        
+        if (animationsEnabled) {
+            // Start animations
+            createCloud();
+            scheduleNextCloud();
+            rainInterval = setInterval(() => {
+                if (document.visibilityState === 'visible') {
+                    createRaindrop();
+                }
+            }, 100);
+        } else {
+            // Stop animations
+            clearInterval(rainInterval);
+            rainContainer.innerHTML = '';
+        }
+    }
+
+    animationToggle.addEventListener('click', toggleAnimations);
+
+    // Don't start animations automatically
+    clearInterval(rainInterval);
+    rainContainer.innerHTML = '';
 });

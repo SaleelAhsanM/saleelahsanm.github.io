@@ -470,82 +470,171 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/*  Experience Container */
-
-.experience-container {
-    position: relative;
+/* Rain Effect */
+.rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Changed from 100% to 100vw to ensure full viewport width */
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
     overflow: hidden;
 }
 
-.experience-h2 {
-    color: #232323;
-    font-family: 'Montserrat', sans-serif;
+.raindrop {
+    position: absolute;
+    pointer-events: none;
+    background: linear-gradient(transparent, var(--primary-color));
+    width: 2px;
+    opacity: 0.3;
+    animation: rainfall linear infinite;
 }
 
-.experience {
-    /* Styles for the experience section */
+@keyframes rainfall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
 }
 
-.experience-item {
-    display: flex;
-    margin-bottom: 20px;
+/* Ensure summary content stays above rain */
+.summary-container {
+    position: relative;
 }
 
-.company-logo {
+.summary-h2, .summary-para, .download-resume {
+    position: relative;
+    z-index: 1;
+}
+
+/* Cloud and Thunder Effects */
+.cloud {
+    position: absolute;
+    background: rgba(212, 203, 189, 0.9); /* Updated to match --primary-color */
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;
+    filter: blur(2px);
+    animation: driftCloud 20s linear infinite;
+    z-index: 0;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(212, 203, 189, 0.9); /* Updated to match --primary-color */
+    border-radius: 50%;
+}
+
+.cloud::before {
     width: 50px;
     height: 50px;
-    margin-right: 10px;
-    border-radius: 5px;
+    top: -20px;
+    left: 15px;
 }
 
-.experience-details {}
-
-.job-title {
-    color: #232323;
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 5px;
-    font-size: 16px;
-    /* Adjusted font size */
-    margin: 0px;
-    font-weight: 600;
+.cloud::after {
+    width: 40px;
+    height: 40px;
+    top: -15px;
+    left: 45px;
 }
 
-.company-name {
-    color: #6f6f6f;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 5px;
-    font-size: 14px;
-    /* Adjusted font size */
-    margin: 0px;
-}
-
-.date-range {
-    color: #6f6f6f;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 5px;
-    font-size: 14px;
-    /* Adjusted font size */
-    margin: 0px 0px 14px 0px;
-}
-
-.job-description {
-    font-size: 14px;
-    /* Adjusted font size */
-    color: #6f6f6f;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding-left: 12px;
-    position: relative;
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.job-description::before {
-    content: "•";
+.thunder {
     position: absolute;
-    left: 0px;
-    color: var(--primary-dark);
-    font-size: 16px;
+    width: 8px;
+    height: 50px; /* Made longer */
+    background: linear-gradient(180deg, #ffeb3b, #ff9800); /* Brighter orange-yellow gradient */
+    transform-origin: top;
+    opacity: 0;
+    filter: drop-shadow(0 0 20px rgba(255, 235, 59, 1)); /* Stronger yellow glow */
+    z-index: 1;
+}
+
+@keyframes driftCloud {
+    0% { transform: translateX(-150px); }
+    100% { transform: translateX(calc(100vw + 150px)); } /* Changed from 100% to 100vw */
+}
+
+@keyframes flash {
+     0% { opacity: 0; }
+    20% { opacity: 1; }
+    40% { opacity: 0; }
+    60% { opacity: 0.8; }
+    80% { opacity: 0; }
+    100% { opacity: 0.4; }
+}
+
+/* Boat Animation */
+.boat {
+    position: absolute;
+    bottom: 10px; /* Adjusted to sit better on waves */
+    right: 40px;
+    width: 100px;
+    height: auto;
+    z-index: 3; /* Ensure boat stays above waves */
+    animation: boatFloat 3s ease-in-out infinite;
+    transform-origin: center bottom;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes boatFloat {
+    0%, 100% {
+        transform: rotate(-2deg) translateY(0);
+    }
+    50% {
+        transform: rotate(2deg) translateY(-6px);
+    }
+}
+
+/* Water Effect */
+.water-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Increased height for better waves */
+    background: linear-gradient(180deg, 
+        rgba(212, 203, 189, 0.3), /* Updated to match --primary-color */
+        rgba(163, 155, 139, 0.5)); /* Updated to match --primary-dark */
+    overflow: hidden;
+    z-index: 0;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    animation: wave 10s linear infinite;
+    transform-origin: center bottom;
+}
+
+.wave1 {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23D4CBBD' fill-opacity='0.3'/%3E%3C/svg%3E");
+    background-size: 28% 100%;
+    animation: wave 12s linear infinite;
+    opacity: 1;
+    z-index: 1;
+}
+
+.wave2 {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23A39B8B' fill-opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 28% 100%;
+    animation: wave 8s linear infinite;
+    opacity: 0.75;
+    z-index: 2;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0) translateZ(0) scaleY(1); }
+    50% { transform: translateX(-25%) translateZ(0) scaleY(0.95); }
+    100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
 }
 
 /* Balloon Animation */
@@ -614,35 +703,67 @@ body {
     }
 }
 
+/* Common toggle button styles */
+.animation-toggle,
 .balloon-toggle {
     position: absolute;
     top: 20px;
-    right: 20px;
     background: none;
     border: none;
-    font-size: 28px; /* Increased size for toggle icon */
+    font-size: 28px;
     color: var(--primary-dark);
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 2;
 }
 
+.animation-toggle {
+    right: 20px;
+}
+
+.balloon-toggle {
+    right: 20px;
+}
+
+.animation-toggle:hover,
 .balloon-toggle:hover {
     transform: scale(1.1);
 }
 
+.animation-toggle.disabled,
 .balloon-toggle.disabled {
     color: var(--primary-color);
-    animation: float 2s ease-in-out infinite;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+/* Animation Toggle Button */
+.animation-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--primary-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.animation-toggle:hover {
+    transform: scale(1.1);
+}
+
+.animation-toggle.disabled {
+    color: var(--primary-color);
+}
+
+/* Hide animations by default */
+.animations-disabled .rain-container,
+.animations-disabled .cloud,
+.animations-disabled .thunder,
+.animations-disabled .water-container,
+.animations-disabled .boat {
+    display: none;
 }
 
 /* Education Container */
@@ -1126,4 +1247,15 @@ html {
 
 body {
     -webkit-overflow-scrolling: touch;
+}
+
+/* Experience Container */
+.experience-container {
+    position: relative; /* Add this to contain absolute positioning */
+    padding-top: 60px; /* Add space for the toggle button */
+}
+
+.experience-h2 {
+    position: relative; /* Keep heading above toggle */
+    z-index: 1;
 }
