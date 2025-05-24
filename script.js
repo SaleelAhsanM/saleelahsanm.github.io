@@ -292,4 +292,57 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animate);
     }
     animate();
+
+    // Add balloon functionality
+    const experienceContainer = document.querySelector('.experience-container');
+    
+    function createBalloon() {
+        const balloon = document.createElement('div');
+        balloon.className = 'balloon';
+        balloon.style.left = Math.random() * 100 + '%';
+        balloon.style.backgroundColor = `hsla(${Math.random() * 360}, 70%, 50%, 0.7)`;
+        
+        // Calculate experience section height instead of screen height
+        const experienceHeight = experienceContainer.offsetHeight;
+        document.documentElement.style.setProperty('--section-height', `${experienceHeight}px`);
+        
+        experienceContainer.appendChild(balloon);
+        balloon.addEventListener('animationend', () => balloon.remove());
+    }
+    
+    // Update height on resize
+    window.addEventListener('resize', () => {
+        const experienceHeight = experienceContainer.offsetHeight;
+        document.documentElement.style.setProperty('--section-height', `${experienceHeight}px`);
+    });
+    
+    // Add balloon toggle button
+    const balloonToggle = document.createElement('button');
+    balloonToggle.className = 'balloon-toggle disabled'; // Add disabled class initially
+    balloonToggle.innerHTML = '<i class="fa-solid fa-toggle-off"></i>';
+    balloonToggle.title = 'Toggle Balloons';
+    experienceContainer.appendChild(balloonToggle);
+
+    let balloonsEnabled = false; // Start with balloons disabled
+    let balloonInterval;
+
+    function toggleBalloons() {
+        balloonsEnabled = !balloonsEnabled;
+        balloonToggle.innerHTML = balloonsEnabled ? 
+            '<i class="fa-solid fa-toggle-on"></i>' : 
+            '<i class="fa-solid fa-toggle-off"></i>';
+        balloonToggle.classList.toggle('disabled'); // Toggle disabled instead of inactive
+        
+        if (balloonsEnabled) {
+            balloonInterval = setInterval(createBalloon, 2000);
+        } else {
+            clearInterval(balloonInterval);
+            document.querySelectorAll('.balloon').forEach(b => b.remove());
+        }
+    }
+
+    balloonToggle.addEventListener('click', toggleBalloons);
+
+    // Don't start balloon creation automatically
+    // balloonInterval = setInterval(createBalloon, 2000);
 });
