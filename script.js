@@ -468,14 +468,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const waterContainer = document.createElement('div');
     waterContainer.className = 'water-container';
     
-    const wave1 = document.createElement('div');
-    wave1.className = 'wave wave1';
+    // Create all 4 waves
+    for (let i = 1; i <= 4; i++) {
+        const wave = document.createElement('div');
+        wave.className = `wave wave${i}`;
+        waterContainer.appendChild(wave);
+    }
     
-    const wave2 = document.createElement('div');
-    wave2.className = 'wave wave2';
-    
-    waterContainer.appendChild(wave1);
-    waterContainer.appendChild(wave2);
     summaryContainer.appendChild(waterContainer);
 
     // Add boat after water container
