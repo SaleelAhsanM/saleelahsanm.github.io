@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (window.scrollY >= (sectionTop - sectionHeight/3)) {
+            if (window.scrollY >= (sectionTop - sectionHeight/4)) {
                 current = section.getAttribute('id');
             }
         });
@@ -42,34 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         touchStartY = e.touches[0].clientY;
     }, false);
 
-    document.addEventListener('touchend', e => {
-        touchEndY = e.changedTouches[0].clientY;
-        const swipeDistance = touchStartY - touchEndY;
-        
-        // Only handle section change if swipe distance exceeds threshold
-        if (Math.abs(swipeDistance) >= SWIPE_THRESHOLD) {
-            handleSwipe(swipeDistance > 0);
-        }
-    }, false);
-
-    function handleSwipe(isSwipeUp) {
-        const sections = Array.from(document.querySelectorAll('.each-container'));
-        const currentSection = sections.find(section => {
-            const rect = section.getBoundingClientRect();
-            const centerY = window.innerHeight / 2;
-            // Consider section active if it occupies the center of the screen
-            return rect.top <= centerY && rect.bottom >= centerY;
-        });
-        
-        if (currentSection) {
-            const currentIndex = sections.indexOf(currentSection);
-            if (isSwipeUp && currentIndex < sections.length - 1) {
-                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-            } else if (!isSwipeUp && currentIndex > 0) {
-                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }
+    
 
     // Prevent default scroll behavior on touch devices
     document.addEventListener('touchmove', function(e) {
@@ -372,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Create raindrops periodically
-    const rainInterval = setInterval(() => {
+    let rainInterval = setInterval(() => {
         if (document.visibilityState === 'visible') {
             createRaindrop();
         }
