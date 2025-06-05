@@ -93,8 +93,6 @@ body {
 }
 
 .summary-outer-container {
-    position: relative;
-    z-index: 1;
     background-color: var(--white);
 }
 
@@ -103,7 +101,6 @@ body {
 }
 
 .education-outer-container {
-    position: relative;
     background-color: var(--white);
 }
 
@@ -525,7 +522,7 @@ body {
     width: 100px;
     height: 40px;
     filter: blur(2px);
-    animation: driftCloud 20s linear infinite;
+    animation: driftCloud 30s linear infinite;
     z-index: 0;
 }
 
@@ -653,28 +650,28 @@ body {
 
 .wave1 {
     background: url('images/wave-1.svg');
-    animation: wave 12s linear infinite;
+    animation: wave 22s linear infinite;
     opacity: 1;
     z-index: 1;
 }
 
 .wave2 {
     background: url('images/wave-2.svg');
-    animation: wave 8s linear infinite;
+    animation: wave 18s linear infinite;
     opacity: 0.75;
     z-index: 2;
 }
 
 .wave3 {
     background: url('images/wave-3.svg');
-    animation: wave 10s linear infinite;
+    animation: wave 20s linear infinite;
     opacity: 0.5;
     z-index: 3;
 }
 
 .wave4 {
     background: url('images/wave-4.svg');
-    animation: wave 6s linear infinite;
+    animation: wave 16s linear infinite;
     opacity: 0.25;
     z-index: 4;
 }
@@ -697,7 +694,7 @@ body {
     height: 116.5px;
     border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
     z-index: 0;
-    animation: floatUp 8s linear;
+    animation: floatUp 20s linear;
     /* Reduced from 8s to 4s */
 }
 
@@ -1321,6 +1318,7 @@ body {
 
 /* Experience Container */
 .experience-container {
+    overflow: hidden;
     position: relative;
 }
 
