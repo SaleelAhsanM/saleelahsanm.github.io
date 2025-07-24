@@ -52,6 +52,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Scroll to Top functionality
     const scrollToTopBtn = document.getElementById('scrollToTop');
 
+    // Scroll to Bottom functionality
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    const skillsSection = document.getElementById('skills');
+
+    let scrollToBottomClicked = false;
+    function toggleScrollToBottom() {
+        if (scrollToBottomClicked) {
+            scrollToBottomBtn.classList.remove('visible');
+            return;
+        }
+        // Show button if user is near the skills section or bottom
+        const skillsRect = skillsSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const nearBottom = (window.scrollY + windowHeight) >= (document.body.scrollHeight - 100);
+        const skillsVisible = skillsRect.top < windowHeight && skillsRect.bottom > 0;
+        if (skillsVisible || nearBottom) {
+            scrollToBottomBtn.classList.add('visible');
+        } else {
+            scrollToBottomBtn.classList.remove('visible');
+        }
+    }
+
+    scrollToBottomBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Show SaaS section and hide scrollToBottom button on click
+    const saasSection = document.querySelector('.saas-outer-container');
+    if (scrollToBottomBtn && saasSection) {
+        scrollToBottomBtn.addEventListener('click', function() {
+            scrollToBottomClicked = true;
+            saasSection.classList.add('visible');
+            scrollToBottomBtn.classList.remove('visible');
+            saasSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
+    window.addEventListener('scroll', toggleScrollToBottom);
+    window.addEventListener('resize', toggleScrollToBottom);
+    document.addEventListener('DOMContentLoaded', toggleScrollToBottom);
+
     function toggleScrollToTop() {
         if (window.scrollY > 200) {
             scrollToTopBtn.classList.add('visible');
