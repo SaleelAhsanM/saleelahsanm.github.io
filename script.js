@@ -551,6 +551,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Portfolio visitor count from API
     const viewCountEl = document.getElementById('viewCount');
     if (viewCountEl) {
+        // Show loader spinner while loading
+        viewCountEl.innerHTML = '<span class="loader-spinner"></span>';
         fetch('https://portfolio-api-rqzp.onrender.com/visitor/count')
             .then(response => response.json())
             .then(data => {
