@@ -91,6 +91,17 @@ body {
     display: none;
 }
 
+.portfolio-views {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: #A39B8B;
+    font-family: 'Poppins', sans-serif;
+}
+
 .content {
     margin-left: 70px;
     width: calc(100% - 70px);
