@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Non-blocking visitor tracking API call (POST with empty payload)
+    fetch('https://portfolio-api-rqzp.onrender.com/visitor/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({})
+    }).catch(() => {});
     const sections = document.querySelectorAll('.each-container');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -541,4 +547,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Don't start animations automatically
     clearInterval(rainInterval);
     rainContainer.innerHTML = '';
+
+    // Portfolio visitor count from API
+    const viewCountEl = document.getElementById('viewCount');
+    if (viewCountEl) {
+        fetch('https://portfolio-api-rqzp.onrender.com/visitor/count')
+            .then(response => response.json())
+            .then(data => {
+                if (data && typeof data.count === 'number') {
+                    viewCountEl.textContent = data.count;
+                } else {
+                    viewCountEl.textContent = 'N/A';
+                }
+            })
+            .catch(() => {
+                viewCountEl.textContent = 'N/A';
+            });
+    }
 });
