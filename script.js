@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Non-blocking visitor tracking API call (POST with empty payload)
-    fetch('https://portfolio-api-rqzp.onrender.com/visitor/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({})
-    }).catch(() => {});
+    // API base URL
+    const API_BASE_URL = 'https://gowk28rxii.execute-api.ap-south-1.amazonaws.com/';
+    // Non-blocking visitor tracking API call (GET)
+    fetch(`${API_BASE_URL}?action=track`).catch(() => {});
     const sections = document.querySelectorAll('.each-container');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -553,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (viewCountEl) {
         // Show loader spinner while loading
         viewCountEl.innerHTML = '<span class="loader-spinner"></span>';
-        fetch('https://portfolio-api-rqzp.onrender.com/visitor/count')
+        fetch(`${API_BASE_URL}?action=count`)
             .then(response => response.json())
             .then(data => {
                 if (data && typeof data.count === 'number') {
