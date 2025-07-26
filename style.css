@@ -888,9 +888,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.education {
-    /* Styles for the education section */
-}
 
 .education-item {
     display: flex;
@@ -904,9 +901,6 @@ body {
     border-radius: 5px;
 }
 
-.education-details {
-    /* Styles for the education details */
-}
 
 .degree-title {
     color: #232323;
@@ -940,8 +934,7 @@ body {
     margin: 0px;
 }
 
-/* Skills Container */
-.skills-container {}
+
 
 .skills-h2 {
     color: #232323;
