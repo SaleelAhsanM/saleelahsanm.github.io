@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // API base URL
-    const API_BASE_URL = 'https://gowk28rxii.execute-api.ap-south-1.amazonaws.com/';
+    const API_BASE_URL = 'https://gowk28rxii.execute-api.ap-south-1.amazonaws.com';
     // Non-blocking visitor tracking API call (GET)
     fetch(`${API_BASE_URL}?action=track`).catch(() => {});
     const sections = document.querySelectorAll('.each-container');
