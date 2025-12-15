@@ -166,12 +166,12 @@ body {
 }
 
 .name-container {
-    overflow-x: hidden;
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: row;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .greeting {
