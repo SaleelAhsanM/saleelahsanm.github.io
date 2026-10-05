@@ -36,6 +36,7 @@ You can download my latest resume directly from the website or from the `documen
 
 ## 🌐 Live Demo
 This portfolio is intended to be deployed as a static website (e.g., GitHub Pages).
+[Live](https://saleelahsanm.github.io)
 
 ## 📬 Contact
 - [LinkedIn](https://www.linkedin.com/in/saleelahsanm/)
